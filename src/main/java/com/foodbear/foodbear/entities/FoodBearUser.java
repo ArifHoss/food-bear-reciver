@@ -3,6 +3,7 @@ package com.foodbear.foodbear.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -23,5 +24,7 @@ public class FoodBearUser {
     @OneToOne
     private UserAddress userAddress;
 
+    @OneToMany
+    private Set<Order> orders;
 
 }
