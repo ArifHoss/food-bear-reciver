@@ -20,6 +20,6 @@ public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long promotionPercentage;
+    private Long discount;
     private Long promotionName;
 }
