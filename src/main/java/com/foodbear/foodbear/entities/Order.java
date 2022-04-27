@@ -28,4 +28,8 @@ public class Order {
 //    @OneToMany
 //    private Set<FoodItem> foodItems=new HashSet<>();
 
+   @PrePersist
+    public void getCurrentDate(){
+       setLocalDateTime(LocalDateTime.now());
+   }
 }

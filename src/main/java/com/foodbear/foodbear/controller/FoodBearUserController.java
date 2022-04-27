@@ -4,7 +4,6 @@ import com.foodbear.foodbear.entities.FoodBearUser;
 import com.foodbear.foodbear.service.FoodBearUserService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
