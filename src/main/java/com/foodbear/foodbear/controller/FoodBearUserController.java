@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 @Data
 @AllArgsConstructor
@@ -24,5 +25,10 @@ public class FoodBearUserController {
     @PostMapping
     public  FoodBearUser createUser(@RequestBody FoodBearUser foodBearUser){
         return foodBearUserService.createUser(foodBearUser);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable("id")Long id){
+        foodBearUserService.deleteUser(id);
     }
 }

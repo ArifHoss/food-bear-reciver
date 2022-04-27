@@ -7,6 +7,8 @@ import lombok.Data;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Data
 @AllArgsConstructor
 @Service("foodBearUserService")
@@ -20,5 +22,9 @@ public class FoodBearUserService {
 
     public FoodBearUser createUser(FoodBearUser foodBearUser) {
         return foodBearUserDaoJpa.save(foodBearUser);
+    }
+
+    public void deleteUser(Long id) {
+        foodBearUserDaoJpa.deleteById(id);
     }
 }
