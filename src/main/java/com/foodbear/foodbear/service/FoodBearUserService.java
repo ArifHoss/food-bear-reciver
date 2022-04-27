@@ -1,7 +1,7 @@
 package com.foodbear.foodbear.service;
 
 import com.foodbear.foodbear.entities.FoodBearUser;
-import com.foodbear.foodbear.repo.FoodBearUserRepo;
+import com.foodbear.foodbear.repo.FoodBearUserDaoJpa;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Service;
@@ -9,12 +9,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Data
 @AllArgsConstructor
-@Service
+@Service("foodBearUserService")
 public class FoodBearUserService {
 
-    private FoodBearUserRepo foodBearUserRepo;
+    private FoodBearUserDaoJpa foodBearUserDaoJpa;
 
     public List<FoodBearUser> getAllUsers() {
-        return (List<FoodBearUser>) foodBearUserRepo.findAll();
+        return foodBearUserDaoJpa.findAll();
+    }
+
+    public FoodBearUser createUser(FoodBearUser foodBearUser) {
+        return foodBearUserDaoJpa.save(foodBearUser);
     }
 }

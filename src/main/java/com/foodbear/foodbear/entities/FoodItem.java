@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "fooditem")
 public class FoodItem {
 
     @Id
@@ -21,6 +22,6 @@ public class FoodItem {
     private Long price;
     private String type;
 
-    @ManyToOne
-    private Restaurant restaurant;
+//    @ManyToOne
+//    private Restaurant restaurant;
 }

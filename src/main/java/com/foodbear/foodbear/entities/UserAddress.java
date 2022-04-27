@@ -1,8 +1,17 @@
 package com.foodbear.foodbear.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Setter @Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "useraddress")
 public class UserAddress {
 
     @Id
@@ -12,8 +21,8 @@ public class UserAddress {
     private Long zipcode;
     private String City;
 
-    @OneToOne
-    private FoodBearUser foodBearUser;
+//    @OneToOne
+//    private FoodBearUser foodBearUser;
 
 
 }

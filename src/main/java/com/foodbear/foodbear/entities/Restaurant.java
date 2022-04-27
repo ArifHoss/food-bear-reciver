@@ -20,6 +20,6 @@ public class Restaurant {
     private Long id;
     private String name;
 
-    @OneToMany
-    private Set<FoodItem> foodItems;
+//    @OneToMany
+//    private Set<FoodItem> foodItems;
 }

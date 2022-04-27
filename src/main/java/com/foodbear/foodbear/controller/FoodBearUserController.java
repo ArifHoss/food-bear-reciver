@@ -4,9 +4,8 @@ import com.foodbear.foodbear.entities.FoodBearUser;
 import com.foodbear.foodbear.service.FoodBearUserService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @Data
@@ -20,5 +19,10 @@ public class FoodBearUserController {
     @GetMapping
     public List<FoodBearUser> getAllUsers(){
         return foodBearUserService.getAllUsers();
+    }
+
+    @PostMapping
+    public  FoodBearUser createUser(@RequestBody FoodBearUser foodBearUser){
+        return foodBearUserService.createUser(foodBearUser);
     }
 }

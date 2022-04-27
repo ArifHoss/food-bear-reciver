@@ -3,6 +3,7 @@ package com.foodbear.foodbear.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -10,6 +11,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "foodbearuser")
 public class FoodBearUser {
 
     @Id
@@ -21,10 +23,10 @@ public class FoodBearUser {
     private String password;
     private AuthorizationType authorizationType;
 
-    @OneToOne
-    private UserAddress userAddress;
-
-    @OneToMany
-    private Set<Order> orders;
+//    @OneToOne
+//    private UserAddress userAddress;
+//
+//    @OneToMany
+//    private Set<Order> orders = new HashSet<>();
 
 }
