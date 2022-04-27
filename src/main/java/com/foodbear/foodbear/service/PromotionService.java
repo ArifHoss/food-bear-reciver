@@ -29,6 +29,7 @@ public class PromotionService {
 
     public Promotion getById(Long id) {
         return promotionDaoJpa.findById(id).get();
+//        return promotionDaoJpa.getById(id);
     }
 
     public Promotion update(Promotion promotion, Map<Object, Object> fields) {
