@@ -4,9 +4,7 @@ import com.foodbear.foodbear.entities.Order;
 import com.foodbear.foodbear.service.OrderService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +21,17 @@ public class OrderController {
         return orderService.getAllOrder();
     }
 
+    @PostMapping
+    public Order createOrder(@RequestBody Order order){
+        return orderService.createOrder(order);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteOrder(@PathVariable("id")Long id){
+        orderService.deleteOrder(id);
+    }
+    @PatchMapping("/{id}")
+    public void updateOrder(@PathVariable("id")Long id, @RequestBody Order order){
+        orderService.updateOrder(id, order);
+    }
 }
