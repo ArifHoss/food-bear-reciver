@@ -7,15 +7,14 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order {
+@Table(name = "foodbearorder")
+public class FoodBearOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

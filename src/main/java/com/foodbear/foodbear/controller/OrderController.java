@@ -1,6 +1,6 @@
 package com.foodbear.foodbear.controller;
 
-import com.foodbear.foodbear.entities.Order;
+import com.foodbear.foodbear.entities.FoodBearOrder;
 import com.foodbear.foodbear.service.OrderService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,13 +17,13 @@ public class OrderController {
     private OrderService orderService;
 
     @GetMapping
-    public List<Order> getAllOrders(){
+    public List<FoodBearOrder> getAllOrders(){
         return orderService.getAllOrder();
     }
 
     @PostMapping
-    public Order createOrder(@RequestBody Order order){
-        return orderService.createOrder(order);
+    public FoodBearOrder createOrder(@RequestBody FoodBearOrder foodBearOrder){
+        return orderService.createOrder(foodBearOrder);
     }
 
     @DeleteMapping("/{id}")
@@ -31,7 +31,7 @@ public class OrderController {
         orderService.deleteOrder(id);
     }
     @PatchMapping("/{id}")
-    public void updateOrder(@PathVariable("id")Long id, @RequestBody Order order){
-        orderService.updateOrder(id, order);
+    public void updateOrder(@PathVariable("id")Long id, @RequestBody FoodBearOrder foodBearOrder){
+        orderService.updateOrder(id, foodBearOrder);
     }
 }
