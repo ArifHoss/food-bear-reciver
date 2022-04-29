@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -20,6 +21,6 @@ public class Restaurant {
     private Long id;
     private String name;
 
-//    @OneToMany
-//    private Set<FoodItem> foodItems;
+    @OneToMany
+    private Set<FoodItem> foodItems = new HashSet<>();
 }

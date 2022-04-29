@@ -23,10 +23,10 @@ public class FoodBearUser {
     private String password;
     private AuthorizationType authorizationType;
 
-//    @OneToOne
-//    private UserAddress userAddress;
-//
-//    @OneToMany
-//    private Set<Order> orders = new HashSet<>();
+    @OneToOne (fetch = FetchType.EAGER)
+    private UserAddress userAddress;
+
+    @OneToMany
+    private Set<FoodBearOrder> orders = new HashSet<>();
 
 }

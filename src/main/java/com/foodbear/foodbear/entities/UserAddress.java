@@ -21,8 +21,8 @@ public class UserAddress {
     private Long zipcode;
     private String City;
 
-//    @OneToOne
-//    private FoodBearUser foodBearUser;
+    @OneToOne
+    private FoodBearUser foodBearUser;
 
 
 }

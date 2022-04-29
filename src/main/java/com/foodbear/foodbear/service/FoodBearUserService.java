@@ -7,7 +7,6 @@ import lombok.Data;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @AllArgsConstructor
@@ -15,12 +14,14 @@ import java.util.Optional;
 public class FoodBearUserService {
 
     private FoodBearUserDaoJpa foodBearUserDaoJpa;
+    //private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public List<FoodBearUser> getAllUsers() {
         return foodBearUserDaoJpa.findAll();
     }
 
     public FoodBearUser createUser(FoodBearUser foodBearUser) {
+        //foodBearUser.setPassword(passwordEncoder.encode(foodBearUser.getPassword()));
         return foodBearUserDaoJpa.save(foodBearUser);
     }
 

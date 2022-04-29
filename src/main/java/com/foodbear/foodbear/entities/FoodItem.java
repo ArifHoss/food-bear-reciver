@@ -22,6 +22,6 @@ public class FoodItem {
     private Long price;
     private String type;
 
-//    @ManyToOne
-//    private Restaurant restaurant;
+    @ManyToOne (fetch = FetchType.EAGER)
+    private Restaurant restaurant;
 }
