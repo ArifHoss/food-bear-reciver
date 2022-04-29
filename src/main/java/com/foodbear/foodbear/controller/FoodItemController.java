@@ -1,6 +1,7 @@
 package com.foodbear.foodbear.controller;
 
 import com.foodbear.foodbear.entities.FoodItem;
+import com.foodbear.foodbear.entities.Restaurant;
 import com.foodbear.foodbear.service.FoodItemService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,9 +23,9 @@ public class FoodItemController {
         return foodItemService.getAllFoodItems();
     }
 
-    @PostMapping
-    public FoodItem addFoodItem(@RequestBody FoodItem foodItem){
-        return foodItemService.addFoodItem(foodItem);
+    @PostMapping("/restaurant/{id}")
+    public FoodItem addFoodItem(@RequestBody FoodItem foodItem,@PathVariable Long id){
+        return foodItemService.addFoodItem(foodItem, id);
     }
 
     @DeleteMapping("/{id}")
@@ -36,4 +37,5 @@ public class FoodItemController {
     public void updateFoodItem(@PathVariable("id") Long id, @RequestBody FoodItem foodItem){
         foodItemService.updateFoodItem(id, foodItem);
     }
+
 }

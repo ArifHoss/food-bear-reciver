@@ -1,9 +1,6 @@
 package com.foodbear.foodbear.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -12,6 +9,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Restaurant {
@@ -21,6 +19,7 @@ public class Restaurant {
     private Long id;
     private String name;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.MERGE)
     private Set<FoodItem> foodItems = new HashSet<>();
+
 }

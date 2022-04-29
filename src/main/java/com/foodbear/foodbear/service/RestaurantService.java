@@ -19,7 +19,7 @@ public class RestaurantService {
     private RestaurantDaoJpa restaurantDaoJpa;
 
     public List<Restaurant> getAllRestaurant() {
-        return restaurantDaoJpa.findAll();
+        return (List<Restaurant>) restaurantDaoJpa.findAll();
     }
 
     public Restaurant getRestaurantById(Long id) {

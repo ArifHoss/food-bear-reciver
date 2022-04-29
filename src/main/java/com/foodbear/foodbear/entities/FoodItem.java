@@ -1,15 +1,13 @@
 package com.foodbear.foodbear.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "fooditem")
@@ -22,6 +20,8 @@ public class FoodItem {
     private Long price;
     private String type;
 
-    @ManyToOne (fetch = FetchType.EAGER)
+    @ManyToOne (cascade = CascadeType.MERGE)
     private Restaurant restaurant;
+
+
 }

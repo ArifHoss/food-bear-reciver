@@ -2,7 +2,9 @@ package com.foodbear.foodbear.service;
 
 import com.foodbear.foodbear.entities.FoodBearUser;
 import com.foodbear.foodbear.entities.FoodItem;
+import com.foodbear.foodbear.entities.Restaurant;
 import com.foodbear.foodbear.repo.FoodItemDaoJpa;
+import com.foodbear.foodbear.repo.RestaurantDaoJpa;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Service;
@@ -15,13 +17,17 @@ import java.util.List;
 public class FoodItemService {
 
     private FoodItemDaoJpa foodItemDaoJpa;
+    private RestaurantDaoJpa restaurantDaoJpa;
 
     public List<FoodItem> getAllFoodItems() {
-        return foodItemDaoJpa.findAll();
+        return (List<FoodItem>) foodItemDaoJpa.findAll();
     }
 
-    public FoodItem addFoodItem(FoodItem foodItem) {
-        return foodItemDaoJpa.save(foodItem);
+    public FoodItem addFoodItem(FoodItem foodItem,Long id) {
+        Restaurant foundRestaurant = restaurantDaoJpa.findById(id).get();
+        foodItem.setRestaurant(foundRestaurant);
+        foodItemDaoJpa.save(foodItem);
+        return foodItem;
     }
 
     public void deleteFoodItem(Long id) {
