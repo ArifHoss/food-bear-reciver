@@ -27,7 +27,7 @@ public class UserAddressController {
 
     @PostMapping
     public UserAddress create(@RequestBody UserAddress userAddress){
-        return userAddressService.create(userAddress);
+        return userAddressService.createAddress(userAddress);
     }
 
     @PatchMapping("/{id}")

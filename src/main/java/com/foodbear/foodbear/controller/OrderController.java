@@ -25,6 +25,14 @@ public class OrderController {
     public FoodBearOrder createOrder(@RequestBody FoodBearOrder foodBearOrder){
         return orderService.createOrder(foodBearOrder);
     }
+/*
+
+    @GetMapping("/newOrders")
+        public String orderReciever(){
+        return orderService.recieveNewOrders();
+    }
+*/
+
 
     @DeleteMapping("/{id}")
     public void deleteOrder(@PathVariable("id")Long id){

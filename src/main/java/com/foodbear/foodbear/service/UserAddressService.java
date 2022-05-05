@@ -24,7 +24,7 @@ public class UserAddressService {
         return userAddressDaoJpa.findById(id).get();
     }
 
-    public UserAddress create(UserAddress userAddress){
+    public UserAddress createAddress(UserAddress userAddress){
         return userAddressDaoJpa.save(userAddress);
     }
 

@@ -1,6 +1,7 @@
 package com.foodbear.foodbear.controller;
 
 import com.foodbear.foodbear.entities.FoodBearUser;
+import com.foodbear.foodbear.entities.UserAddress;
 import com.foodbear.foodbear.service.FoodBearUserService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,6 +16,7 @@ import java.util.List;
 public class FoodBearUserController {
 
     private FoodBearUserService foodBearUserService;
+    //private UserAddress userAdressService;
 
     @GetMapping
     public List<FoodBearUser> getAllUsers(){
@@ -22,7 +24,9 @@ public class FoodBearUserController {
     }
 
     @PostMapping
-    public  FoodBearUser createUser(@RequestBody FoodBearUser foodBearUser){
+    public  FoodBearUser createUser(@RequestBody FoodBearUser foodBearUser, UserAddress userAddress){
+        //foodBearUser.setUserAddress(userAddress);
+        //userAddress.setFoodBearUser(foodBearUser);
         return foodBearUserService.createUser(foodBearUser);
     }
 

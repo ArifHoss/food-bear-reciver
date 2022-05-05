@@ -5,7 +5,6 @@ import com.foodbear.foodbear.repo.FoodBearUserDaoJpa;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Data
