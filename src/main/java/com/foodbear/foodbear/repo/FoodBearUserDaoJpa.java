@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository("foodBearUserDaoJpa")
 public interface FoodBearUserDaoJpa extends JpaRepository<FoodBearUser, Long> {
+//    FoodBearUser findByUsername(String username);
 }
