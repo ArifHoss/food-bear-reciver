@@ -4,7 +4,6 @@ import com.foodbear.foodbear.entities.FoodBearOrder;
 import com.foodbear.foodbear.repo.OrderDaoJpa;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +15,7 @@ public class OrderService {
 
     private OrderDaoJpa orderDaoJpa;
 
-    private JmsTemplate jmsTemplate;
+//    private JmsTemplate jmsTemplate;
 
 
 

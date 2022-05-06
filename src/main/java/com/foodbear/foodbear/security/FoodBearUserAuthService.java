@@ -1,4 +1,4 @@
-package com.foodbear.foodbear.auth;
+package com.foodbear.foodbear.security;
 
 import com.foodbear.foodbear.entities.FoodBearUser;
 import com.foodbear.foodbear.repo.FoodBearUserDaoJpa;

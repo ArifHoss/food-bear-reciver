@@ -1,11 +1,16 @@
 package com.foodbear.foodbear.service;
 
 import com.foodbear.foodbear.entities.FoodBearUser;
+import com.foodbear.foodbear.exception.ConflictException;
+import com.foodbear.foodbear.exception.GlobalControllerExceptionHandler;
 import com.foodbear.foodbear.repo.FoodBearUserDaoJpa;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.server.WebExceptionHandler;
+
 import java.util.List;
 
 @Data
@@ -20,7 +25,15 @@ public class FoodBearUserService {
         return foodBearUserDaoJpa.findAll();
     }
 
+
     public FoodBearUser createUser(FoodBearUser foodBearUser) {
+
+        String email = foodBearUser.getEmail();
+        List<String> existing = foodBearUserDaoJpa.existingEmail();
+
+        if (existing.contains(email)){
+            throw new ConflictException("EMAIL_ALREADY_EXIST");
+        }
        foodBearUser.setPassword(passwordEncoder.encode(foodBearUser.getPassword()));
         return foodBearUserDaoJpa.save(foodBearUser);
     }

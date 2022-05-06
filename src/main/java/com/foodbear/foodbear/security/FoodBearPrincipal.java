@@ -1,4 +1,4 @@
-package com.foodbear.foodbear.auth;
+package com.foodbear.foodbear.security;
 
 import com.foodbear.foodbear.entities.FoodBearUser;
 import org.springframework.security.core.GrantedAuthority;
