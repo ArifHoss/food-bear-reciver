@@ -2,17 +2,16 @@ package com.foodbear.foodbear.service;
 
 import com.foodbear.foodbear.entities.FoodBearUser;
 import com.foodbear.foodbear.exception.ConflictException;
-import com.foodbear.foodbear.exception.GlobalControllerExceptionHandler;
 import com.foodbear.foodbear.repo.FoodBearUserDaoJpa;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.server.WebExceptionHandler;
 
 import java.util.List;
 
+@Slf4j
 @Data
 @AllArgsConstructor
 @Service("foodBearUserService")
@@ -58,5 +57,9 @@ public class FoodBearUserService {
         }
 
         foodBearUserDaoJpa.save(foundUser);
+    }
+
+    public FoodBearUser findUserById(Long id) {
+        return foodBearUserDaoJpa.getById(id);
     }
 }

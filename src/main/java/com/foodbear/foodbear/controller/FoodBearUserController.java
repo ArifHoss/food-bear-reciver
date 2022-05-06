@@ -23,10 +23,13 @@ public class FoodBearUserController {
         return foodBearUserService.getAllUsers();
     }
 
+    @GetMapping("{id}")
+    public FoodBearUser findUserById(@PathVariable Long id){
+        return foodBearUserService.findUserById(id);
+    }
+
     @PostMapping
-    public  FoodBearUser createUser(@RequestBody FoodBearUser foodBearUser, UserAddress userAddress){
-        //foodBearUser.setUserAddress(userAddress);
-        //userAddress.setFoodBearUser(foodBearUser);
+    public  FoodBearUser createUser(@RequestBody FoodBearUser foodBearUser){
         return foodBearUserService.createUser(foodBearUser);
     }
 
