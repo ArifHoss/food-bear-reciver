@@ -28,10 +28,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
+
+        http.cors();
+
         http
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/","/user").permitAll()
+                .antMatchers("/admin/**").hasAnyRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();
