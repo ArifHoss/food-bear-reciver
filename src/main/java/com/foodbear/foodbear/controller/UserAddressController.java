@@ -26,9 +26,10 @@ public class UserAddressController {
         return userAddressService.getAddressById(id);
     }
 
-    @PostMapping
-    public UserAddress create(@RequestBody UserAddress userAddress){
-        return userAddressService.createAddress(userAddress);
+    @PostMapping("user/{userId}")
+    public UserAddress create(@RequestBody UserAddress userAddress,
+                              @PathVariable("userId") Long userId){
+        return userAddressService.createAddress(userAddress, userId);
     }
 
     @PatchMapping("/{id}")
