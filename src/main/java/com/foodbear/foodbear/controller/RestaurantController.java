@@ -11,6 +11,7 @@ import java.util.Map;
 
 @Data
 @AllArgsConstructor
+@CrossOrigin
 @RestController
 @RequestMapping("/restaurant")
 public class RestaurantController {

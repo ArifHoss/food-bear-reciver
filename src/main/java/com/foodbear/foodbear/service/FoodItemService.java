@@ -6,18 +6,20 @@ import com.foodbear.foodbear.entities.Restaurant;
 import com.foodbear.foodbear.repo.FoodItemDaoJpa;
 import com.foodbear.foodbear.repo.RestaurantDaoJpa;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @Service("foodItemService")
 public class FoodItemService {
 
-    private FoodItemDaoJpa foodItemDaoJpa;
-    private RestaurantDaoJpa restaurantDaoJpa;
+    private final FoodItemDaoJpa foodItemDaoJpa;
+    private final RestaurantDaoJpa restaurantDaoJpa;
 
     public List<FoodItem> getAllFoodItems() {
         return (List<FoodItem>) foodItemDaoJpa.findAll();

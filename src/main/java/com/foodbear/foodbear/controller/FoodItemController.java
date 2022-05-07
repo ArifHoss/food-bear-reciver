@@ -12,6 +12,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
+@CrossOrigin
 @RestController
 @RequestMapping("/fooditem")
 public class FoodItemController {
@@ -23,9 +24,9 @@ public class FoodItemController {
         return foodItemService.getAllFoodItems();
     }
 
-    @PostMapping("/restaurant/{id}")
-    public FoodItem addFoodItem(@RequestBody FoodItem foodItem,@PathVariable Long id){
-        return foodItemService.addFoodItem(foodItem, id);
+    @PostMapping("/restaurant/{restaurantId}")
+    public FoodItem addFoodItem(@RequestBody FoodItem foodItem,@PathVariable("restaurantId") Long restaurantId){
+        return foodItemService.addFoodItem(foodItem, restaurantId);
     }
 
     @DeleteMapping("/{id}")

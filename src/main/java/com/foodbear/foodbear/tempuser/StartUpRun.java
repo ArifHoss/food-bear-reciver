@@ -4,12 +4,12 @@ import com.foodbear.foodbear.entities.AuthorizationType;
 import com.foodbear.foodbear.entities.FoodBearUser;
 import com.foodbear.foodbear.repo.FoodBearUserDaoJpa;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.nio.charset.StandardCharsets;
-
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class StartUpRun implements CommandLineRunner {
@@ -20,17 +20,18 @@ public class StartUpRun implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        if (!foodBearUserDaoJpa.existsByEmail("food@bear.se")){
-            FoodBearUser user= FoodBearUser.builder()
+
+        if ( !foodBearUserDaoJpa.existsByEmail("food@bear.se") ) {
+            FoodBearUser user = FoodBearUser.builder()
                     .firstName("Mr. Food")
                     .lastName("Bear")
-                    .email("food©bear.se")
+                    .email("food@bear.se")
                     .authorizationType(AuthorizationType.ADMIN)
                     .password(passwordEncoder.encode("hej123"))
-//                    .encryptedPassword(passwordEncoder.encode("hej123").getBytes(StandardCharsets.UTF_8))
                     .build();
-
             foodBearUserDaoJpa.save(user);
+
+            log.debug("User {} created...", user.getFirstName());
         }
     }
 }

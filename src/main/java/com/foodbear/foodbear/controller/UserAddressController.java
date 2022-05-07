@@ -11,6 +11,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @RestController
+@CrossOrigin
 @RequestMapping("/address")
 public class UserAddressController {
 

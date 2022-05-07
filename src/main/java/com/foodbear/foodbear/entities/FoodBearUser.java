@@ -2,28 +2,27 @@ package com.foodbear.foodbear.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@Table(name = "foodbearuser")
 @Entity
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "foodbearuser")
-public class FoodBearUser {
+@Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@AttributeOverride(name = "id", column = @Column(name = "userId"))
+public class FoodBearUser extends SharedClass{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private String firstName;
     private String lastName;
+
+    @Column(unique = true)
     private String email;
 
     private AuthorizationType authorizationType;

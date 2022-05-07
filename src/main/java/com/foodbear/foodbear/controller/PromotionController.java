@@ -12,6 +12,7 @@ import java.util.Map;
 @Data
 @AllArgsConstructor
 @RestController
+@CrossOrigin
 @RequestMapping("/promotion")
 public class PromotionController {
 

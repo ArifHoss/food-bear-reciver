@@ -1,9 +1,7 @@
 package com.foodbear.foodbear.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 
@@ -12,11 +10,10 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "useraddress")
-public class UserAddress {
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@AttributeOverride(name = "id", column = @Column(name = "useraddressId"))
+public class UserAddress extends SharedClass{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private String adressLine;
     private Long zipcode;
     private String City;

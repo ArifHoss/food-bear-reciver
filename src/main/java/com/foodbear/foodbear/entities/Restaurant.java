@@ -1,6 +1,7 @@
 package com.foodbear.foodbear.entities;
 
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -12,14 +13,13 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Restaurant {
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@AttributeOverride(name = "id", column = @Column(name = "restaurantId"))
+public class Restaurant extends SharedClass{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private String name;
 
-    @OneToMany(cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "restaurant",cascade = CascadeType.MERGE, orphanRemoval = true)
     private Set<FoodItem> foodItems = new HashSet<>();
 
 }

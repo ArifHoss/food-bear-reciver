@@ -1,9 +1,7 @@
 package com.foodbear.foodbear.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -14,11 +12,11 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Promotion {
+@Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@AttributeOverride(name = "id", column = @Column(name = "promotionId"))
+public class Promotion extends SharedClass{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private Long discount;
     private String promotionName;
 

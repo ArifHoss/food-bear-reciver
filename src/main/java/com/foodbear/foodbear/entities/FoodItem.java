@@ -1,6 +1,7 @@
 package com.foodbear.foodbear.entities;
 
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 
@@ -11,6 +12,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "fooditem")
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@AttributeOverride(name = "id", column = @Column(name = "fooditemId"))
 public class FoodItem {
 
     @Id
