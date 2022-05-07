@@ -18,7 +18,7 @@ public class UserAddress extends SharedClass{
     private Long zipcode;
     private String City;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.MERGE)
     private FoodBearUser foodBearUser;
 
 
