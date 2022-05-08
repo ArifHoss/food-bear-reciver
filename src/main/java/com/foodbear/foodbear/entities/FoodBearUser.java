@@ -26,10 +26,11 @@ public class FoodBearUser extends SharedClass{
     private String email;
 
     private AuthorizationType authorizationType;
-    @OneToOne (fetch = FetchType.EAGER)
+
+    @OneToOne (cascade = CascadeType.MERGE, orphanRemoval = true)
     private UserAddress userAddress;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true)
     private Set<FoodBearOrder> orders = new HashSet<>();
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
