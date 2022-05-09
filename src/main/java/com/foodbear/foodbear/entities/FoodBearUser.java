@@ -31,7 +31,7 @@ public class FoodBearUser extends SharedClass{
     private UserAddress userAddress;
 
     @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true)
-    private Set<FoodBearOrder> orders = new HashSet<>();
+    private Set<FoodOrder> orders = new HashSet<>();
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;

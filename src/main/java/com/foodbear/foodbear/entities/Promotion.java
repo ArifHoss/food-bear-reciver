@@ -20,6 +20,6 @@ public class Promotion extends SharedClass{
     private Long discount;
     private String promotionName;
 
-    @OneToMany
-    private Set<FoodBearOrder> orders = new HashSet<>();
+    @OneToMany(cascade = CascadeType.MERGE)
+    private Set<FoodOrder> orders = new HashSet<>();
 }

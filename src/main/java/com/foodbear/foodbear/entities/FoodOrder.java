@@ -17,19 +17,19 @@ import java.util.Set;
 @Table(name = "foodbearorder")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AttributeOverride(name = "id", column = @Column(name = "orderId"))
-public class FoodBearOrder extends SharedClass{
+public class FoodOrder extends SharedClass{
 
     private Long totalPrice;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime localDateTime;
 
-    @ManyToOne(fetch= FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private FoodBearUser customer;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.MERGE)
     private Set<FoodItem> orderItems=new HashSet<>();
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Promotion promotion;
 
    @PrePersist
