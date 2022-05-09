@@ -41,11 +41,12 @@ public class FoodBearUserService {
     }
 
     public void deleteUser(Long id) {
-        foodBearUserDaoJpa.deleteById(id);
+        FoodBearUser user = findUser(id);
+        foodBearUserDaoJpa.delete(user);
     }
 
     public void updateUser(Long id, FoodBearUser foodBearUser) {
-        FoodBearUser foundUser = foodBearUserDaoJpa.findById(id).get();
+        FoodBearUser foundUser = findUser(id);
 
         if (foodBearUser.getFirstName() != null) {
             foundUser.setFirstName(foodBearUser.getFirstName());
@@ -67,7 +68,11 @@ public class FoodBearUserService {
     }
 
     public FoodBearUser findUserById(Long id) {
+        return findUser(id);
+    }
+
+    private FoodBearUser findUser(Long id) {
         return foodBearUserDaoJpa.findById(id)
-                .orElseThrow(()-> new ResourceNotFoundException("USER_NOT_FOUND"));
+                .orElseThrow(() -> new ResourceNotFoundException("USER_NOT_FOUND"));
     }
 }
