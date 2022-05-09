@@ -22,7 +22,7 @@ public class JmsConfig {
     public MessageConverter messageConverter() {
 
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
-        converter.setTargetType(MessageType.TEXT);
+        converter.setTargetType(MessageType.BYTES);
         converter.setTypeIdPropertyName("_type");
 
         ObjectMapper objectMapper = new ObjectMapper();
