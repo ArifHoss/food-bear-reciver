@@ -14,5 +14,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
+  activemq:
+    broker-url: tcp://localhost:61616
 
 
